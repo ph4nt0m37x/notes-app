@@ -1,0 +1,61 @@
+# =====================
+# Node (React frontend)
+# =====================
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# build output
+frontend/build/
+dist/
+
+# =====================
+# Python (Flask backend)
+# =====================
+venv/
+env/
+backend/venv/
+backend/env/
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# environment variables
+backend/.env
+.env
+
+# =====================
+# IDEs
+# =====================
+.idea/
+.vscode/
+
+# =====================
+# OS files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Docker
+# =====================
+*.log
+
+# =====================
+# MongoDB local files
+# =====================
+*.lock
+data/
+db/
+
+# =====================
+# Testing / coverage
+# =====================
+coverage/
+*.coverage
+.pytest_cache/
