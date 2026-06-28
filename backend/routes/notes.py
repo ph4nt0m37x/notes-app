@@ -1,3 +1,4 @@
+import datetime
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from database import notes_collection
@@ -30,7 +31,8 @@ def create_note():
     note = {
         "title": data.get("title"),
         "content": data.get("content"),
-        "user_id": user_id
+        "user_id": user_id,
+        "createdAt": datetime.datetime.now(),
     }
 
     result = notes_collection.insert_one(note)
@@ -60,7 +62,8 @@ def update_note(note_id):
 
     updated_data = {
         "title": data.get("title"),
-        "content": data.get("content")
+        "content": data.get("content"),
+        "createdAt": datetime.datetime.now(),
     }
 
     result = notes_collection.update_one(

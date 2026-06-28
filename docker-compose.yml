@@ -4,9 +4,11 @@ services:
     container_name: notes-backend
     ports:
       - "5000:5000"
+    env_file:
+      - ./backend/.env
     environment:
-      - MONGO_URI=mongodb://admin:password@mongodb:27017/
-      - DATABASE_NAME=notes_db
+      - MONGO_URI=${MONGO_URI}
+      - DATABASE_NAME=${DATABASE_NAME}
     depends_on:
       - mongodb
 
@@ -25,8 +27,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
     volumes:
       - mongo_data:/data/db
 

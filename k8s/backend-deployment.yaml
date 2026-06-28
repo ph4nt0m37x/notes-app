@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: notes-app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+        - name: backend
+          image: marijailievskafinki/backend:latest
+
+          ports:
+            - containerPort: 5000
+
+          env:
+            # --- SECRET (credentials) ---
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: MONGO_USERNAME
+
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-secret
+                  key: MONGO_PASSWORD
+
+            # --- CONFIGMAP (non-sensitive config) ---
+            - name: DATABASE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: DATABASE_NAME
+
+            - name: MONGO_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: MONGO_HOST
+
+            - name: MONGO_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: MONGO_PORT
