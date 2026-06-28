@@ -106,7 +106,7 @@ function Notes() {
         <div className="flex justify-between items-center mb-8">
           <div>
             <h2 className="text-3xl font-bold text-gray-800">My Notes</h2>
-            <p className="text-gray-500 mt-1">Create and manage your notes</p>
+            <p className="text-gray-500 mt-1">Create and manage your notes.</p>
           </div>
           <button
             onClick={() => {
