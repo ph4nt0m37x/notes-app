@@ -17,7 +17,7 @@ function Notes() {
     setError("");
 
     try {
-      const res = await API.get("/api/notes", {
+      const res = await API.get("/notes", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -38,7 +38,7 @@ function Notes() {
   const createNote = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/api/notes", formData, {
+      await API.post("/notes", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -53,7 +53,7 @@ function Notes() {
   const updateNote = async (e) => {
     e.preventDefault();
     try {
-      await API.put(`/api/notes/${editingNote._id}`, formData, {
+      await API.put(`/notes/${editingNote._id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -70,7 +70,7 @@ function Notes() {
     if (!window.confirm("Delete this note?")) return;
 
     try {
-      await API.delete(`/api/notes/${id}`, {
+      await API.delete(`/notes/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

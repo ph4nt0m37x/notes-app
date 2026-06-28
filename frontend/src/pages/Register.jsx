@@ -16,7 +16,7 @@ function Register() {
     setError("");
 
     try {
-      await API.post("/api/register", {
+      await API.post("/register", {
         username,
         password,
       });
