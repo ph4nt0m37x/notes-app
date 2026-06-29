@@ -4,6 +4,7 @@ A simple Notes application demonstrating a complete DevOps workflow using Docker
 
 ## Project Structure
 
+```
 notes-app
 ├── backend/
 ├── frontend/
@@ -11,6 +12,7 @@ notes-app
 ├── .github/workflows/
 ├── docker-compose.yml
 └── README.md
+```
 
 ## Tech Stack
 - Frontend: React
@@ -34,10 +36,9 @@ notes-app
 
 ### Install Argo CD:
 
-```
-kubectl create namespace argocd
-kubectl apply -n argocd \ -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.9/manifests/install.yaml
-```
+```kubectl create namespace argocd```
+
+```kubectl apply -n argocd \ -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.9/manifests/install.yaml```
 
 ### Deploy the application:
 
