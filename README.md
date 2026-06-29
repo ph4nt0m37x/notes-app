@@ -26,7 +26,7 @@ notes-app
 
 ## Docker Compose
 
-```docker-compose up --build```
+```docker compose up -d```
 
 ## Kubernetes
 
