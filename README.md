@@ -21,26 +21,25 @@ notes-app
 - CD: Argo CD (GitOps)
 - Orchestration: Kubernetes (k3d)
 
-## Running locally
 
-
-### Docker Compose
+## Docker Compose
 
 ```docker-compose up --build```
 
-### Kubernetes
+## Kubernetes
 
-- Create the cluster:
+### Create the cluster:
 
 ```k3d cluster create mycluster```
 
-- Install Argo CD:
+### Install Argo CD:
 
-```kubectl create namespace argocd```
+```
+kubectl create namespace argocd
+kubectl apply -n argocd \ -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.9/manifests/install.yaml
+```
 
-```kubectl apply -n argocd \ -f https://raw.githubusercontent.com/argoproj/argo-cd/v3.1.9/manifests/install.yaml```
-
-- Deploy the application:
+### Deploy the application:
 
 Create a new application in Argo CD using:
 
